@@ -1,0 +1,31 @@
+Website from where to pull out the weather data:
+https://openweathermap.org/
+
+Go here: https://openweathermap.org/api/one-call-api#how
+Section: Current and forecast weather data
+
+It will look something like this in code:
+const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${myLatitude}&lon=${myLongitude}&exclude=minutely&appid=9dd97c6cc827388076be21f1128cefef`
+
+If the above code give error try something like this instead:
+const proxi = `https://cors-anywhere.herokuapp.com/`;
+const api = `${proxi}https://api.openweathermap.org/data/2.5/onecall?lat=${myLatitude}&lon=${myLongitude}&exclude=minutely&appid=9dd97c6cc827388076be21f1128cefef`
+
+
+The degrees unit is by default in Kelvin so you can change it in the JS file using formulas
+Or you can change the dafault to Celcius or Fahrenheit: https://openweathermap.org/api/one-call-api#data go to UNITS of MEASUREMENT section!!!
+
+I will do it in code! (i.e. not change current default degrees unit).
+
+Weather Icons can be found here: https://github.com/maxdow/skycons
+Details on how to use the icons: https://darkskyapp.github.io/skycons/ 
+https://github.com/darkskyapp/skycons
+
+
+If you open skycons.js you will see they have name like PARTLY_CLOUDY_DAY,PARTLY_CLOUDY_NIGHT, CLOUDY, RAIN, etc. The problem is that the API website 
+had different ICON names like 01d, 01n, 02d, 02n, 09d, etc so I will go change these in weather_app.js, I will look what all the codes (01d, 01n, 02d, 02n, 09d, etc)
+mean and look into skycons.js and map them to the names in there. I will do it using an empty string in which I will concatenate skycons icon names, using a switch
+to determine the exact names! Since skycons.js contained more names(categories) I just used the ones that I can map a possible code with.
+
+
+
